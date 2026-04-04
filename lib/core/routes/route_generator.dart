@@ -1,0 +1,18 @@
+import 'package:flutter/material.dart';
+import 'package:lapo_app/core/routes/app_routes.dart';
+
+class RouteGenerator {
+  static Route<dynamic> onGenerateRoute(RouteSettings settings) {
+    switch (settings.name) {
+      case AppRoutes.splashView:
+        return MaterialPageRoute(builder: (context) => Scaffold());
+
+      default:
+        return MaterialPageRoute(
+          builder: (context) => Scaffold(
+            body: Center(child: Text('no route defind for ${settings.name}')),
+          ),
+        );
+    }
+  }
+}
