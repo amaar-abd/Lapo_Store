@@ -1,11 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:lapo_app/core/routes/app_routes.dart';
+import 'package:lapo_app/features/splash/presentation/views/splash_view.dart';
 
 class RouteGenerator {
   static Route<dynamic> onGenerateRoute(RouteSettings settings) {
     switch (settings.name) {
       case AppRoutes.splashView:
-        return MaterialPageRoute(builder: (context) => Scaffold());
+        return MaterialPageRoute(builder: (context) => SplashView());
 
       default:
         return MaterialPageRoute(

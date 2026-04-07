@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:lapo_app/core/theme/app_colors.dart';
 import 'package:lapo_app/core/theme/app_typography.dart';
 
@@ -13,6 +14,16 @@ class AppTheme {
       bodyMedium: AppTypography.bodyMedium,
       bodySmall: AppTypography.bodySmall,
       labelSmall: AppTypography.caption,
+    ),
+
+    appBarTheme: AppBarTheme(
+      backgroundColor: AppColors.primaryBackground,
+      elevation: 0,
+      systemOverlayStyle: SystemUiOverlayStyle(
+        statusBarColor: Colors.transparent,
+        statusBarBrightness: Brightness.light,
+        statusBarIconBrightness: Brightness.dark,
+      ),
     ),
     elevatedButtonTheme: ElevatedButtonThemeData(
       style: ElevatedButton.styleFrom(
