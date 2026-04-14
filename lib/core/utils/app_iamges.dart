@@ -2,6 +2,14 @@
 class Assets {
   Assets._();
   
+  /// Assets for assetsImagesButtonApple
+  /// assets/images/Button_Apple.svg
+  static const String assetsImagesButtonApple = "assets/images/Button_Apple.svg";
+
+  /// Assets for assetsImagesButtonGoogle
+  /// assets/images/Button_Google.svg
+  static const String assetsImagesButtonGoogle = "assets/images/Button_Google.svg";
+
   /// Assets for assetsImagesLogoApp
   /// assets/images/logo_app.png
   static const String assetsImagesLogoApp = "assets/images/logo_app.png";
@@ -25,5 +33,9 @@ class Assets {
   /// Assets for assetsImagesSplachHeading
   /// assets/images/splach/Heading.png
   static const String assetsImagesSplachHeading = "assets/images/splach/Heading.png";
+
+  /// Assets for assetsImagesTopParIcon
+  /// assets/images/top_par_icon.svg
+  static const String assetsImagesTopParIcon = "assets/images/top_par_icon.svg";
 }
 

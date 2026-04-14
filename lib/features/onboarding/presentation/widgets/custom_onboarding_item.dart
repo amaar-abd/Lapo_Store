@@ -2,7 +2,7 @@ import 'package:dots_indicator/dots_indicator.dart';
 import 'package:flutter/material.dart';
 import 'package:lapo_app/core/routes/app_routes.dart';
 import 'package:lapo_app/core/theme/app_colors.dart';
-import 'package:lapo_app/core/utils/mian_button.dart';
+import 'package:lapo_app/core/presentation/widgets/mian_button.dart';
 import 'package:lapo_app/features/onboarding/presentation/widgets/top_title_row.dart';
 
 class CustomOnboardingItem extends StatelessWidget {

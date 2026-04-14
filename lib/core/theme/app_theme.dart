@@ -21,8 +21,8 @@ class AppTheme {
       elevation: 0,
       systemOverlayStyle: SystemUiOverlayStyle(
         statusBarColor: Colors.transparent,
-        statusBarBrightness: Brightness.light,
-        statusBarIconBrightness: Brightness.dark,
+        statusBarBrightness: Brightness.dark,
+        statusBarIconBrightness: Brightness.light,
       ),
     ),
     elevatedButtonTheme: ElevatedButtonThemeData(
