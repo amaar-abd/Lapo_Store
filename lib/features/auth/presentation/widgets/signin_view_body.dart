@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:lapo_app/features/auth/presentation/widgets/auth_container.dart';
+import 'package:lapo_app/core/routes/app_routes.dart';
+import 'package:lapo_app/features/auth/presentation/widgets/signin_auth_container.dart';
 import 'package:lapo_app/features/auth/presentation/widgets/top_par_widget.dart';
 import 'package:lapo_app/features/auth/presentation/widgets/user_question_row.dart';
 
@@ -36,12 +37,15 @@ class _SigninViewBodyState extends State<SigninViewBody> {
             children: [
               TopParWidget(),
               SizedBox(height: height * 0.03),
-              AuthContainer(
+              SigninAuthContainer(
                 emailcontroller: emailController,
                 passwordcontroller: passwordController,
               ),
               SizedBox(height: height * 0.04),
               UserQuestionRow(
+                onTap: () {
+                  Navigator.of(context).pushNamed(AppRoutes.signupView);
+                },
                 mainAxisAlignment: MainAxisAlignment.center,
                 ask: 'Don\'t have an account ? ',
                 answer: 'Sign Up',

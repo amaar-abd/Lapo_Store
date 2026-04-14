@@ -1,27 +1,28 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:lapo_app/core/theme/app_colors.dart';
 import 'package:lapo_app/core/presentation/widgets/mian_button.dart';
-import 'package:lapo_app/features/auth/presentation/widgets/accounts_buttons_row.dart';
+import 'package:lapo_app/core/theme/app_colors.dart';
+import 'package:lapo_app/features/auth/presentation/widgets/custom_checkbox_row.dart';
 import 'package:lapo_app/features/auth/presentation/widgets/custom_text_form_field.dart';
-import 'package:lapo_app/features/auth/presentation/widgets/or_divider.dart';
-import 'package:lapo_app/features/auth/presentation/widgets/user_question_row.dart';
 
-class AuthContainer extends StatefulWidget {
-  const AuthContainer({
+class SignupAuthContainer extends StatefulWidget {
+  const SignupAuthContainer({
     super.key,
-    required this.emailcontroller,
-    required this.passwordcontroller,
+    required this.nameController,
+    required this.emailController,
+    required this.passwordController,
   });
-  final TextEditingController emailcontroller;
-  final TextEditingController passwordcontroller;
 
+  final TextEditingController nameController;
+  final TextEditingController emailController;
+  final TextEditingController passwordController;
   @override
-  State<AuthContainer> createState() => _AuthContainerState();
+  State<SignupAuthContainer> createState() => _SignupAuthContainerState();
 }
 
-class _AuthContainerState extends State<AuthContainer> {
+class _SignupAuthContainerState extends State<SignupAuthContainer> {
   bool isObscure = true;
+  bool isChecked = false;
   @override
   Widget build(BuildContext context) {
     final double height = MediaQuery.of(context).size.height;
@@ -33,20 +34,22 @@ class _AuthContainerState extends State<AuthContainer> {
       ),
       child: Column(
         children: [
-          Text('Welcome Back', style: TextTheme.of(context).displaySmall),
-          const SizedBox(height: 8),
-          Text(
-            'Experience elite computing',
-            style: TextTheme.of(
-              context,
-            ).bodyMedium?.copyWith(color: AppColors.textSecondary),
+          CustomTextFormField(
+            title: 'Full Name',
+            hintText: 'amaar abd alrahman',
+            obscureText: false,
+            controller: widget.nameController,
+            suffixIcon: Icon(
+              Icons.person,
+              color: AppColors.textSecondary.withAlpha(100),
+            ),
           ),
-          SizedBox(height: height * 0.04),
+          const SizedBox(height: 5),
           CustomTextFormField(
             title: 'Email Address',
             hintText: 'abdamaar64@gmail.com',
             obscureText: false,
-            controller: widget.emailcontroller,
+            controller: widget.emailController,
             suffixIcon: Icon(
               Icons.email,
               color: AppColors.textSecondary.withAlpha(100),
@@ -56,7 +59,7 @@ class _AuthContainerState extends State<AuthContainer> {
           CustomTextFormField(
             title: 'Password',
             hintText: '********',
-            controller: widget.passwordcontroller,
+            controller: widget.passwordController,
             obscureText: isObscure,
             suffixIcon: IconButton(
               onPressed: () {
@@ -71,15 +74,18 @@ class _AuthContainerState extends State<AuthContainer> {
               ),
             ),
           ),
-
-          SizedBox(height: height * 0.01),
-          UserQuestionRow(ask: 'Forgate Password ?'),
           SizedBox(height: height * 0.03),
-          MainButton(onPressed: () {}, text: 'LOGIN'),
+          CustomCheckboxRow(
+            value: isChecked,
+            onChanged: (value) {
+              setState(() {
+                isChecked = value!;
+              });
+            },
+          ),
           SizedBox(height: height * 0.03),
-          Ordivider(),
+          MainButton(onPressed: () {}, text: 'CREATE ACCOUNT'),
           SizedBox(height: height * 0.02),
-          AccountsButtonsRow(),
         ],
       ),
     );
