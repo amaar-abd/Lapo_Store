@@ -7,12 +7,14 @@ abstract class AuthRemoteDataSource {
     required String password,
   });
 
+  Future<void> setUserData({
+    required String name,
+    required String email,
+    required String uId,
+  });
+
   // Future<UserModel> signInWithEmailAndPassword({
   //   required String email,
   //   required String password,
   // });
-
-
-
-
 }

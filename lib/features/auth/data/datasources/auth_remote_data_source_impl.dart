@@ -1,3 +1,4 @@
+import 'package:lapo_app/core/constants/api_constants.dart';
 import 'package:lapo_app/core/errors/custom_exception.dart';
 import 'package:lapo_app/features/auth/data/datasources/auth_remote_data_source.dart';
 import 'package:lapo_app/features/auth/data/models/user_model.dart';
@@ -22,9 +23,27 @@ class AuthRemoteDataSourceImpl implements AuthRemoteDataSource {
       if (response.user == null) {
         throw Exception('Signup failed');
       }
+      setUserData(name: name, email: email, uId: response.user!.id);
       return UserModel.fromJson(response.user!.toJson());
-    }on AuthException catch (e) {
-    throw  ServerException(message: e.toString());
+    } on AuthException catch (e) {
+      throw ServerException(message: e.toString());
+    }
+  }
+
+  @override
+  Future<void> setUserData({
+    required String name,
+    required String email,
+    required String uId,
+  }) async {
+    try {
+      await supabaseClient.from(ApiConstants.userTable).insert({
+        'id': uId,
+        'name': name,
+        'email': email,
+      });
+    } catch (e) {
+      rethrow;
     }
   }
 }
