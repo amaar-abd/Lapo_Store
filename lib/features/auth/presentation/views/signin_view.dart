@@ -1,4 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:lapo_app/core/depandency_injection/service_locator.dart';
+import 'package:lapo_app/features/auth/domain/repo/auth_repo.dart';
+import 'package:lapo_app/features/auth/presentation/manager/signin_cubit/signin_cubit.dart';
 import 'package:lapo_app/features/auth/presentation/widgets/signin_view_body.dart';
 
 class SigninView extends StatelessWidget {
@@ -6,6 +10,13 @@ class SigninView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(body: SafeArea(child: SigninViewBody()));
+    return Scaffold(
+      body: SafeArea(
+        child: BlocProvider(
+          create: (context) => SigninCubit(getIt.get<AuthRepo>()),
+          child: SigninViewBody(),
+        ),
+      ),
+    );
   }
 }

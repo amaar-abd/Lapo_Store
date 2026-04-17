@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:lapo_app/core/theme/app_colors.dart';
-import 'package:lapo_app/core/presentation/widgets/mian_button.dart';
 import 'package:lapo_app/features/auth/presentation/widgets/accounts_buttons_row.dart';
 import 'package:lapo_app/features/auth/presentation/widgets/custom_text_form_field.dart';
 import 'package:lapo_app/features/auth/presentation/widgets/or_divider.dart';
+import 'package:lapo_app/features/auth/presentation/widgets/signin_button_blocconsumer.dart';
 import 'package:lapo_app/features/auth/presentation/widgets/user_question_row.dart';
 
 class SigninAuthContainer extends StatefulWidget {
@@ -12,9 +12,13 @@ class SigninAuthContainer extends StatefulWidget {
     super.key,
     required this.emailcontroller,
     required this.passwordcontroller,
+    required this.formKey,
+    required this.onValidationError,
   });
   final TextEditingController emailcontroller;
   final TextEditingController passwordcontroller;
+  final GlobalKey<FormState> formKey;
+  final VoidCallback onValidationError;
 
   @override
   State<SigninAuthContainer> createState() => _SigninAuthContainerState();
@@ -75,7 +79,12 @@ class _SigninAuthContainerState extends State<SigninAuthContainer> {
           SizedBox(height: height * 0.01),
           UserQuestionRow(ask: 'Forgate Password ?'),
           SizedBox(height: height * 0.03),
-          MainButton(onPressed: () {}, text: 'LOGIN'),
+          SigninButtonBlocconsumer(
+            emailController: widget.emailcontroller,
+            passwordController: widget.passwordcontroller,
+            formKey: widget.formKey,
+            onValidationError: widget.onValidationError,
+          ),
           SizedBox(height: height * 0.03),
           Ordivider(),
           SizedBox(height: height * 0.02),

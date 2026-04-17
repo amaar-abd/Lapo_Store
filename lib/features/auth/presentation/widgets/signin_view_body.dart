@@ -38,8 +38,14 @@ class _SigninViewBodyState extends State<SigninViewBody> {
               TopParWidget(),
               SizedBox(height: height * 0.03),
               SigninAuthContainer(
+                formKey: _formKey,
                 emailcontroller: emailController,
                 passwordcontroller: passwordController,
+                onValidationError: () {
+                  setState(() {
+                    autovalidateMode = AutovalidateMode.always;
+                  });
+                },
               ),
               SizedBox(height: height * 0.04),
               UserQuestionRow(
