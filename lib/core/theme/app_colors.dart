@@ -13,6 +13,7 @@ class AppColors {
   // (Status)
   static const Color errorRed = Color(0xFFFF4B4B);
   static const Color successGreen = Color(0xFF00FFC2);
+  static const Color success = Color(0xFF28A745);
 
   // (Glassmorphism)
   static Color glassBackground = const Color(

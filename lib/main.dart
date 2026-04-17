@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:lapo_app/core/constants/api_constants.dart';
+import 'package:lapo_app/core/depandency_injection/service_locator.dart';
 import 'package:lapo_app/core/routes/app_routes.dart';
 import 'package:lapo_app/core/routes/route_generator.dart';
 import 'package:lapo_app/core/theme/app_theme.dart';
@@ -11,6 +12,7 @@ void main() async {
     url: ApiConstants.supabaseUrl,
     anonKey: ApiConstants.supabaseAnonKey,
   );
+  getItInit();
   runApp(const LapoApp());
 }
 

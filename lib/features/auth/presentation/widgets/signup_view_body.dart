@@ -15,14 +15,15 @@ class _SignupViewBodyState extends State<SignupViewBody> {
   final TextEditingController nameController = TextEditingController();
   final TextEditingController emailController = TextEditingController();
   final TextEditingController passwordController = TextEditingController();
-  final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
+  final GlobalKey<FormState> formKey = GlobalKey<FormState>();
   AutovalidateMode autovalidateMode = AutovalidateMode.disabled;
 
   @override
   Widget build(BuildContext context) {
     final double height = MediaQuery.of(context).size.height;
     return Form(
-      key: _formKey,
+      key: formKey,
+      autovalidateMode: autovalidateMode,
       child: Padding(
         padding: const EdgeInsets.only(right: 16, left: 16, top: 10),
         child: SingleChildScrollView(
@@ -41,9 +42,15 @@ class _SignupViewBodyState extends State<SignupViewBody> {
               ),
               SizedBox(height: height * 0.04),
               SignupAuthContainer(
+                formKey: formKey,
                 nameController: nameController,
                 emailController: emailController,
                 passwordController: passwordController,
+                onValidationError: () {
+                  setState(() {
+                    autovalidateMode = AutovalidateMode.always;
+                  });
+                },
               ),
               SizedBox(height: height * 0.06),
               UserQuestionRow(
