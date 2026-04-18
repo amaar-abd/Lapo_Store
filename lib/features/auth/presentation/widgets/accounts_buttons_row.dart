@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:lapo_app/core/utils/app_iamges.dart';
+import 'package:lapo_app/features/auth/presentation/manager/auth_cubit/auth_cubit.dart';
 
 class AccountsButtonsRow extends StatelessWidget {
   const AccountsButtonsRow({super.key});
@@ -10,8 +12,17 @@ class AccountsButtonsRow extends StatelessWidget {
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
       children: [
-        SvgPicture.asset(Assets.assetsImagesButtonGoogle),
-        SvgPicture.asset(Assets.assetsImagesButtonApple),
+        InkWell(
+          onTap: () {
+            context.read<AuthCubit>().googleSignIn();
+          },
+          child: SvgPicture.asset(Assets.assetsImagesButtonGoogle),
+        ),
+        InkWell(
+          onTap: () {
+          },
+          child: SvgPicture.asset(Assets.assetsImagesButtonGithub),
+        ),
       ],
     );
   }
