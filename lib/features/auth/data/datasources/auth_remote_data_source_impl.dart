@@ -104,4 +104,22 @@ class AuthRemoteDataSourceImpl implements AuthRemoteDataSource {
       throw CustomException(message: 'error in AuthRemoteDataSource $e');
     }
   }
+
+  @override
+  Future<UserModel> signInWithGitHub() async {
+    try {
+      await supabaseClient.auth.signInWithOAuth(
+        OAuthProvider.github,
+        redirectTo: ApiConstants.supabaseRedirectUrl,
+      );
+      final user = supabaseClient.auth.currentUser;
+      if (user != null) {
+        return UserModel.fromJson(user.toJson());
+      } else {
+        throw ServerException(message: 'signin failed');
+      }
+    } catch (e) {
+      throw CustomException(message: 'error in AuthRemoteDataSource $e');
+    }
+  }
 }

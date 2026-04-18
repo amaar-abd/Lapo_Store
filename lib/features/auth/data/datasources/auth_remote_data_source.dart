@@ -22,4 +22,5 @@ abstract class AuthRemoteDataSource {
   Future<UserModel?> getUserData();
 
   Future<AuthResponse> signInWithGoogle();
+  Future<UserModel> signInWithGitHub();
 }
