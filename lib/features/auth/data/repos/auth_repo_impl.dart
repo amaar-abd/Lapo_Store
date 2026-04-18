@@ -3,6 +3,7 @@ import 'package:lapo_app/core/errors/custom_exception.dart';
 import 'package:lapo_app/core/errors/supabase_error.dart';
 import 'package:lapo_app/core/errors/failures.dart';
 import 'package:lapo_app/features/auth/data/datasources/auth_remote_data_source.dart';
+import 'package:lapo_app/features/auth/data/models/user_model.dart';
 import 'package:lapo_app/features/auth/domain/entities/user_entity.dart';
 import 'package:lapo_app/features/auth/domain/repo/auth_repo.dart';
 
@@ -51,6 +52,33 @@ class AuthRepoImpl implements AuthRepo {
       );
     } catch (e) {
       return left(ServerFailure(message: e.toString()));
+    }
+  }
+
+  @override
+  Future<Either<Failure, UserEntity>> getUserData() async {
+    try {
+      final response = await authRemoteDataSource.getUserData();
+      if (response != null) {
+        return right(response);
+      } else {
+        return left(ServerFailure(message: "No user session found"));
+      }
+    } catch (e) {
+      return left(ServerFailure(message: e.toString()));
+    }
+  }
+
+  @override
+  Future<Either<Failure, UserEntity>> signInWithGoogle() async {
+    try {
+      final authResponse = await authRemoteDataSource.signInWithGoogle();
+      final UserEntity userEntity = UserModel.fromJson(
+        authResponse.user!.toJson(),
+      );
+      return right(userEntity);
+    } catch (e) {
+      return Left(ServerFailure(message: e.toString()));
     }
   }
 }
