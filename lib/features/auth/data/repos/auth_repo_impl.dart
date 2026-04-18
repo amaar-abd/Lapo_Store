@@ -81,4 +81,16 @@ class AuthRepoImpl implements AuthRepo {
       return Left(ServerFailure(message: e.toString()));
     }
   }
+  
+  @override
+  Future<Either<Failure, UserEntity>> signInWithGitHub() async{
+   try {
+   
+    final userEntity = await authRemoteDataSource.signInWithGitHub();
+
+    return right(userEntity); 
+  } catch (e) {
+    return left(ServerFailure(message:e.toString()));
+  }
+  }
 }

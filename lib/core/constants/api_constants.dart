@@ -6,4 +6,5 @@ class ApiConstants {
   static const String userTable = 'users';
   static const String googleWebClientId =
       '427627718744-a92l1vs5adf32m00melp8id3j3s0n9eq.apps.googleusercontent.com';
+      static const String supabaseRedirectUrl = 'lapoapp://login-callback';
 }
