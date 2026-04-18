@@ -3,16 +3,18 @@ import 'package:lapo_app/features/auth/data/datasources/auth_remote_data_source.
 import 'package:lapo_app/features/auth/data/datasources/auth_remote_data_source_impl.dart';
 import 'package:lapo_app/features/auth/data/repos/auth_repo_impl.dart';
 import 'package:lapo_app/features/auth/domain/repo/auth_repo.dart';
+import 'package:lapo_app/features/auth/presentation/manager/auth_cubit/auth_cubit.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
 
-final GetIt getIt = GetIt.instance;
+final GetIt sl = GetIt.instance;
 
-void getItInit()  {
-  getIt.registerLazySingleton<SupabaseClient>(() => Supabase.instance.client);
-  getIt.registerLazySingleton<AuthRemoteDataSource>(
-    () => AuthRemoteDataSourceImpl(supabaseClient: getIt.get<SupabaseClient>()),
+void getItInit() {
+  sl.registerLazySingleton<SupabaseClient>(() => Supabase.instance.client);
+  sl.registerLazySingleton<AuthRemoteDataSource>(
+    () => AuthRemoteDataSourceImpl(supabaseClient: sl.get<SupabaseClient>()),
   );
-  getIt.registerLazySingleton<AuthRepo>(
-    () => AuthRepoImpl(authRemoteDataSource: getIt.get<AuthRemoteDataSource>()),
+  sl.registerLazySingleton<AuthRepo>(
+    () => AuthRepoImpl(authRemoteDataSource: sl.get<AuthRemoteDataSource>()),
   );
+  sl.registerFactory(() => AuthCubit(sl.get<AuthRepo>()));
 }
