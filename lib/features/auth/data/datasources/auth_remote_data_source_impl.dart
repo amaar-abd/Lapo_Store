@@ -122,4 +122,13 @@ class AuthRemoteDataSourceImpl implements AuthRemoteDataSource {
       throw CustomException(message: 'error in AuthRemoteDataSource $e');
     }
   }
+
+  @override
+  Future<void> signOut() async {
+    try {
+      await supabaseClient.auth.signOut();
+    } catch (e) {
+     throw CustomException(message: e.toString());
+    }
+  }
 }

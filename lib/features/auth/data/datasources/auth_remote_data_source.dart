@@ -23,4 +23,5 @@ abstract class AuthRemoteDataSource {
 
   Future<AuthResponse> signInWithGoogle();
   Future<UserModel> signInWithGitHub();
+  Future<void> signOut();
 }
