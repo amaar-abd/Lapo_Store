@@ -1,6 +1,7 @@
 import 'package:dots_indicator/dots_indicator.dart';
 import 'package:flutter/material.dart';
 import 'package:lapo_app/core/routes/app_routes.dart';
+import 'package:lapo_app/core/services/cache_helper.dart';
 import 'package:lapo_app/core/theme/app_colors.dart';
 import 'package:lapo_app/core/presentation/widgets/mian_button.dart';
 import 'package:lapo_app/features/onboarding/presentation/widgets/top_title_row.dart';
@@ -37,7 +38,6 @@ class CustomOnboardingItem extends StatelessWidget {
           Text(title, style: TextTheme.of(context).displayLarge),
           const SizedBox(height: 6),
           Text(
-            
             subTitle,
             style: TextTheme.of(
               context,
@@ -77,6 +77,7 @@ class CustomOnboardingItem extends StatelessWidget {
                 );
               } else {
                 Navigator.of(context).pushReplacementNamed(AppRoutes.loginView);
+                CacheHelper.setData(key: 'isOnboardingVisited', value: true);
               }
             },
             text: pageIndex == 0 ? 'Continue' : 'Get Started',
