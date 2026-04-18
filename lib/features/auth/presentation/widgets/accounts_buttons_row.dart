@@ -20,8 +20,9 @@ class AccountsButtonsRow extends StatelessWidget {
         ),
         InkWell(
           onTap: () {
+            context.read<AuthCubit>().signInWithGitHub();
           },
-          child: SvgPicture.asset(Assets.assetsImagesButtonGithub),
+          child: SvgPicture.asset(Assets.assetsImagesButtonGitHub),
         ),
       ],
     );

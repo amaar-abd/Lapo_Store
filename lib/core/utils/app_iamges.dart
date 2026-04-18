@@ -2,9 +2,9 @@
 class Assets {
   Assets._();
   
-  /// Assets for assetsImagesButtonApple
-  /// assets/images/Button_Apple.svg
-  static const String assetsImagesButtonApple = "assets/images/Button_Apple.svg";
+  /// Assets for assetsImagesButtonGitHub
+  /// assets/images/Button_GitHub.svg
+  static const String assetsImagesButtonGitHub = "assets/images/Button_GitHub.svg";
 
   /// Assets for assetsImagesButtonGoogle
   /// assets/images/Button_Google.svg
