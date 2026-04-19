@@ -48,7 +48,7 @@ class _SigninViewBodyState extends State<SigninViewBody> {
               null;
             } else if (state is AuthSuccess) {
               customSnackBar(context, 'login successful', AppColors.success);
-              Navigator.of(context).pushReplacementNamed(AppRoutes.homeView);
+              Navigator.of(context).pushReplacementNamed(AppRoutes.mainView);
             }
           },
           builder: (context, state) {

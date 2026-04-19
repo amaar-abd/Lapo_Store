@@ -25,8 +25,8 @@ class _SplashViewBodyState extends State<SplashViewBody> {
     return BlocConsumer<AuthCubit, AuthState>(
       listener: (context, state) {
         if (state is UserLoggedIn) {
-          Navigator.of(context).pushReplacementNamed(AppRoutes.homeView);
-        }else{
+          Navigator.of(context).pushReplacementNamed(AppRoutes.mainView);
+        } else {
           Navigator.of(context).pushReplacementNamed(AppRoutes.loginView);
         }
       },

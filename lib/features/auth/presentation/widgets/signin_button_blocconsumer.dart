@@ -25,7 +25,7 @@ class SigninButtonBlocconsumer extends StatelessWidget {
       listener: (context, state) {
         if (state is SigninSuccess) {
           customSnackBar(context, 'Login successful', AppColors.success);
-          Navigator.of(context).pushReplacementNamed(AppRoutes.homeView);
+          Navigator.of(context).pushReplacementNamed(AppRoutes.mainView);
         }
         if (state is SigninFailure) {
           customSnackBar(context, state.message, AppColors.errorRed);
