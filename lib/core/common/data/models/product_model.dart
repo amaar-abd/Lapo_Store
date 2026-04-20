@@ -1,3 +1,43 @@
-class ProductModel {
-  
+import 'package:lapo_app/core/common/data/models/product_specs_model.dart';
+import 'package:lapo_app/core/common/domain/entities/product_entity.dart';
+
+class ProductModel extends ProductEntity {
+  const ProductModel({
+    required super.id,
+    required super.name,
+    required super.price,
+    required super.category,
+    required super.brand,
+    required super.isOnSale,
+    required super.imageUrl,
+    required super.specs,
+  });
+
+  factory ProductModel.fromJson(Map<String, dynamic> json) {
+    return ProductModel(
+      id: json['id'],
+      name: json['name'],
+      price: json['price'] as num,
+      category: json['category'],
+      brand: json['brand'],
+      isOnSale: json['is_on_sale'],
+      imageUrl: json['image_url'],
+      specs: ProductSpecsModel.fromJSon(
+        Map<String, String>.from(json['specs'] ?? {}),
+      ),
+    );
+  }
+
+  Map<String, dynamic> toJson() {
+    return {
+      'id': id,
+      'name': name,
+      'price': price,
+      'category': category,
+      'brand': brand,
+      'is_on_sale': isOnSale,
+      'image_url': imageUrl,
+      'specs': (specs as ProductSpecsModel).specstoJson(),
+    };
+  }
 }
