@@ -10,9 +10,12 @@ environment:
 
 dependencies:
   bloc: ^9.2.0
+  cached_network_image: ^3.4.1
+  carousel_slider: ^5.1.2
   cupertino_icons: ^1.0.8
   dartz: ^0.10.1
   dots_indicator: ^4.0.1
+  equatable: ^2.0.8
   flutter:
     sdk: flutter
   flutter_bloc: ^9.1.1

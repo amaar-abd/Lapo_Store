@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:lapo_app/core/presentation/widgets/custom_snackbar.dart';
-import 'package:lapo_app/core/presentation/widgets/mian_button.dart';
+import 'package:lapo_app/core/common/widgets/custom_snackbar.dart';
+import 'package:lapo_app/core/common/widgets/mian_button.dart';
 import 'package:lapo_app/core/theme/app_colors.dart';
 import 'package:lapo_app/features/auth/presentation/manager/signup_cubit/signup_cubit.dart';
 
