@@ -16,5 +16,5 @@ void getItInit() {
   sl.registerLazySingleton<AuthRepo>(
     () => AuthRepoImpl(authRemoteDataSource: sl.get<AuthRemoteDataSource>()),
   );
-  sl.registerFactory(() => AuthCubit(sl.get<AuthRepo>()));
+  sl.registerLazySingleton(() => AuthCubit(sl.get<AuthRepo>()));
 }
