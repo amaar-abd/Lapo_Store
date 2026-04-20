@@ -1,6 +1,7 @@
 import 'package:equatable/equatable.dart';
 import 'package:lapo_app/core/common/domain/entities/product_specs_entity.dart';
 
+
 class ProductEntity extends Equatable {
   final String id;
   final String name;

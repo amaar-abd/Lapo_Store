@@ -31,4 +31,15 @@ class ProductSpecsModel extends ProductSpecsEntity {
       'battery': battery,
     };
   }
+
+  ProductSpecsEntity specsToEntity() {
+    return ProductSpecsEntity(
+      cpu: cpu,
+      gpu: gpu,
+      ram: ram,
+      storage: storage,
+      screen: screen,
+      battery: battery,
+    );
+  }
 }

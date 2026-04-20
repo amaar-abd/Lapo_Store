@@ -12,7 +12,7 @@ class ProductModel extends ProductEntity {
     required super.imageUrl,
     required super.specs,
   });
-
+  ProductSpecsModel get _specsModel => specs as ProductSpecsModel;
   factory ProductModel.fromJson(Map<String, dynamic> json) {
     return ProductModel(
       id: json['id'],
@@ -37,7 +37,20 @@ class ProductModel extends ProductEntity {
       'brand': brand,
       'is_on_sale': isOnSale,
       'image_url': imageUrl,
-      'specs': (specs as ProductSpecsModel).specstoJson(),
+      'specs': _specsModel.specstoJson(),
     };
+  }
+
+  ProductEntity toEntity() {
+    return ProductEntity(
+      id: id,
+      name: name,
+      price: price,
+      category: category,
+      brand: brand,
+      isOnSale: isOnSale,
+      imageUrl: imageUrl,
+      specs: _specsModel.specsToEntity(),
+    );
   }
 }
