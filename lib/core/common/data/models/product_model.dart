@@ -13,6 +13,7 @@ class ProductModel extends ProductEntity {
     required super.specs,
   });
   ProductSpecsModel get _specsModel => specs as ProductSpecsModel;
+
   factory ProductModel.fromJson(Map<String, dynamic> json) {
     return ProductModel(
       id: json['id'],
@@ -23,7 +24,7 @@ class ProductModel extends ProductEntity {
       isOnSale: json['is_on_sale'],
       imageUrl: json['image_url'],
       specs: ProductSpecsModel.fromJSon(
-        Map<String, String>.from(json['specs'] ?? {}),
+        Map<String, dynamic>.from(json['specs']),
       ),
     );
   }

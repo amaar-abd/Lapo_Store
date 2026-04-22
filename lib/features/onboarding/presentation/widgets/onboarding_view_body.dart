@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:lapo_app/core/utils/app_iamges.dart';
+import 'package:lapo_app/core/utils/app_images.dart';
 import 'package:lapo_app/features/onboarding/presentation/widgets/custom_onboarding_item.dart';
 
 class OnboardingViewBody extends StatefulWidget {

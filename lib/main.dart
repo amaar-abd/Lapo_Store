@@ -21,7 +21,7 @@ void main() async {
 }
 
 class LapoApp extends StatelessWidget {
-  const LapoApp({super.key});
+const LapoApp({super.key});
 
   @override
   Widget build(BuildContext context) {

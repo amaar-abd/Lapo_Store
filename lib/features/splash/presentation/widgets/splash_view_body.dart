@@ -3,7 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:lapo_app/core/routes/app_routes.dart';
 import 'package:lapo_app/core/services/cache_helper.dart';
 import 'package:lapo_app/core/theme/app_colors.dart';
-import 'package:lapo_app/core/utils/app_iamges.dart';
+import 'package:lapo_app/core/utils/app_images.dart';
 import 'package:lapo_app/features/auth/presentation/manager/auth_cubit/auth_cubit.dart';
 
 class SplashViewBody extends StatefulWidget {
@@ -37,7 +37,7 @@ class _SplashViewBodyState extends State<SplashViewBody> {
               child: Stack(
                 children: [
                   Image.asset(
-                    Assets.assetsImagesSplachGradient,
+                    Assets.assetsImagesSplashGradient,
                     fit: BoxFit.cover,
                     width: double.infinity,
                   ),
@@ -50,12 +50,12 @@ class _SplashViewBodyState extends State<SplashViewBody> {
                         child: ClipRRect(
                           borderRadius: BorderRadius.circular(30),
                           child: Image.asset(
-                            Assets.assetsImagesSplach3608189284164304,
+                            Assets.assetsImagesSplash3608189284164304,
                           ),
                         ),
                       ),
                       SizedBox(height: 20),
-                      Image.asset(Assets.assetsImagesSplachHeading),
+                      Image.asset(Assets.assetsImagesSplashHeading),
                       SizedBox(height: 10),
                       Text(
                         'PRECISION PERFORAMANCE',
