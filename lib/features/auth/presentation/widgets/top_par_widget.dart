@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
-import 'package:lapo_app/core/utils/app_iamges.dart';
+import 'package:lapo_app/core/utils/app_images.dart';
 
 class TopParWidget extends StatelessWidget {
   const TopParWidget({super.key});

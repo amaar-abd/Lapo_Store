@@ -12,12 +12,12 @@ class ProductSpecsModel extends ProductSpecsEntity {
 
   factory ProductSpecsModel.fromJSon(Map<String, dynamic> json) {
     return ProductSpecsModel(
-      cpu: json['cpu'],
-      gpu: json['gpu'],
-      ram: json['ram'],
-      storage: json['storage'],
-      screen: json['screen'],
-      battery: json['battery'],
+      cpu: json['cpu']?.toString()??'',
+      gpu: json['gpu']?.toString()??'',
+      ram: json['ram']?.toString()??'',
+      storage: json['storage']?.toString()??'',
+      screen: json['screen']?.toString()??'',
+      battery: json['battery']?.toString()??'',
     );
   }
 
