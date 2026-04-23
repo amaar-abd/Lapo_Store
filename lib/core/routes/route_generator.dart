@@ -24,7 +24,7 @@ class RouteGenerator {
       case AppRoutes.detailsView:
       final args = settings.arguments;
         return MaterialPageRoute(builder: (context) =>  DetailsView(product: args as ProductEntity,
-          
+  
         ));
 
       default:

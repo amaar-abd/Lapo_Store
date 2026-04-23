@@ -21,9 +21,9 @@ final List<CategoryModel> categpries = [
     query: 'Student',
   ),
   CategoryModel(
-    title: 'Crieative',
+    title: 'Creative',
     pathIcon: Assets.assetsImagesCreativeIcon,
-    query: 'Crieative',
+    query: 'Creative',
   ),
  
 ];

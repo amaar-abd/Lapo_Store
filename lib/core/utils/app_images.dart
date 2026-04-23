@@ -10,6 +10,10 @@ class Assets {
   /// assets/images/Button_Google.svg
   static const String assetsImagesButtonGoogle = "assets/images/Button_Google.svg";
 
+  /// Assets for assetsImagesCpuIcon
+  /// assets/images/cpu_Icon.svg
+  static const String assetsImagesCpuIcon = "assets/images/cpu_Icon.svg";
+
   /// Assets for assetsImagesCreativeIcon
   /// assets/images/Creative_icon.svg
   static const String assetsImagesCreativeIcon = "assets/images/Creative_icon.svg";
@@ -17,6 +21,14 @@ class Assets {
   /// Assets for assetsImagesGamingIcon
   /// assets/images/Gaming_icon.svg
   static const String assetsImagesGamingIcon = "assets/images/Gaming_icon.svg";
+
+  /// Assets for assetsImagesGpuIcon
+  /// assets/images/gpu_Icon.svg
+  static const String assetsImagesGpuIcon = "assets/images/gpu_Icon.svg";
+
+  /// Assets for assetsImagesHardIcon
+  /// assets/images/hard_Icon.svg
+  static const String assetsImagesHardIcon = "assets/images/hard_Icon.svg";
 
   /// Assets for assetsImagesLogoApp
   /// assets/images/logo_app.png
@@ -29,6 +41,10 @@ class Assets {
   /// Assets for assetsImagesOnboardingOnboardingImage2
   /// assets/images/onboarding/onboarding_image_2.png
   static const String assetsImagesOnboardingOnboardingImage2 = "assets/images/onboarding/onboarding_image_2.png";
+
+  /// Assets for assetsImagesRamIcon
+  /// assets/images/ram_Icon.svg
+  static const String assetsImagesRamIcon = "assets/images/ram_Icon.svg";
 
   /// Assets for assetsImagesSplash3608189284164304
   /// assets/images/splash/36.08189284164304.png
