@@ -37,7 +37,11 @@ class _MainViewBodyState extends State<MainViewBody> {
           ),
         ),
       ),
-      body: IndexedStack(index: _selectedIndex, children: _views),
+      body: AnimatedSwitcher(
+        duration: const Duration(milliseconds: 200),
+        key: ValueKey<int>(_selectedIndex),
+        child: IndexedStack(index: _selectedIndex, children: _views),
+      ),
       bottomNavigationBar: CustomBottomNavBar(
         onTap: (index) {
           setState(() {

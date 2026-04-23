@@ -48,7 +48,7 @@ class CarouselSliderHome extends StatelessWidget {
                           width: double.infinity,
                           errorWidget: (context, url, error) => Image.asset(''),
                           placeholder: (context, url) => Container(
-                            color: Colors.grey[200],
+                            color: AppColors.surfaceCard.withAlpha(20),
                             child: const Center(
                               child: CircularProgressIndicator(
                                 color: AppColors.accentCyan,
@@ -89,14 +89,6 @@ class CarouselSliderHome extends StatelessWidget {
                             context,
                           ).bodyLarge?.copyWith(fontWeight: FontWeight.bold),
                         ),
-                        // Text(
-                        //   '20% Off Today',
-                        //   style: TextTheme.of(context).bodyLarge?.copyWith(
-                        //     color: AppColors.accentCyan,
-                        //     fontWeight: FontWeight.bold,
-                        //   ),
-                        // ),
-                        // SizedBox(height: 5),
                         Text(
                           products[index].specs.cpu,
                           style: TextTheme.of(context).bodyMedium?.copyWith(
