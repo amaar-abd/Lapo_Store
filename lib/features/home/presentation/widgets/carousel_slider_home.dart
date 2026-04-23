@@ -2,6 +2,7 @@ import 'package:cached_network_image/cached_network_image.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:lapo_app/core/routes/app_routes.dart';
 import 'package:lapo_app/core/theme/app_colors.dart';
 import 'package:lapo_app/features/home/presentation/manager/sales_cubit/home_sales_cubit.dart';
 
@@ -32,16 +33,19 @@ class CarouselSliderHome extends StatelessWidget {
 
             itemCount: products.length,
             itemBuilder: (context, index, realIndex) {
-              return Stack(
-                children: [
-                  Padding(
-                    padding: const EdgeInsets.symmetric(horizontal: 2),
-                    child: ClipRRect(
-                      borderRadius: BorderRadius.circular(25),
-                      child: GestureDetector(
-                        onTap: () {
-                          //
-                        },
+              return GestureDetector(
+                onTap: () {
+                  Navigator.of(context, rootNavigator: true).pushNamed(
+                    AppRoutes.detailsView,
+                    arguments: products[index],
+                  );
+                },
+                child: Stack(
+                  children: [
+                    Padding(
+                      padding: const EdgeInsets.symmetric(horizontal: 2),
+                      child: ClipRRect(
+                        borderRadius: BorderRadius.circular(25),
                         child: CachedNetworkImage(
                           imageUrl: products[index].imageUrl,
                           fit: BoxFit.cover,
@@ -58,70 +62,73 @@ class CarouselSliderHome extends StatelessWidget {
                         ),
                       ),
                     ),
-                  ),
-                  Positioned(
-                    top: 6,
-                    left: 8,
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        DecoratedBox(
-                          decoration: BoxDecoration(
-                            color: Colors.red,
-                            borderRadius: BorderRadius.circular(5),
-                          ),
-                          child: Padding(
-                            padding: const EdgeInsets.symmetric(horizontal: 5),
-                            child: Text(
-                              '20% OFF',
-                              style: TextTheme.of(context).bodyMedium?.copyWith(
-                                color: Colors.white,
-                                fontSize: 15,
-                                fontWeight: FontWeight.bold,
+                    Positioned(
+                      top: 6,
+                      left: 8,
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          DecoratedBox(
+                            decoration: BoxDecoration(
+                              color: Colors.red,
+                              borderRadius: BorderRadius.circular(5),
+                            ),
+                            child: Padding(
+                              padding: const EdgeInsets.symmetric(
+                                horizontal: 5,
+                              ),
+                              child: Text(
+                                '20% OFF',
+                                style: TextTheme.of(context).bodyMedium
+                                    ?.copyWith(
+                                      color: Colors.white,
+                                      fontSize: 15,
+                                      fontWeight: FontWeight.bold,
+                                    ),
                               ),
                             ),
                           ),
-                        ),
-                        SizedBox(height: 20),
-                        Text(
-                          products[index].name,
-                          style: TextTheme.of(
-                            context,
-                          ).bodyLarge?.copyWith(fontWeight: FontWeight.bold),
-                        ),
-                        Text(
-                          products[index].specs.cpu,
-                          style: TextTheme.of(context).bodyMedium?.copyWith(
-                            color: AppColors.textSecondary,
-                            fontWeight: FontWeight.bold,
+                          SizedBox(height: 130),
+                          Text(
+                            products[index].name,
+                            style: TextTheme.of(
+                              context,
+                            ).bodyLarge?.copyWith(fontWeight: FontWeight.bold),
                           ),
-                        ),
-                        SizedBox(height: 2),
-                        Text(
-                          products[index].specs.ram,
-                          style: TextTheme.of(context).bodyMedium?.copyWith(
-                            color: AppColors.textSecondary,
-                            fontWeight: FontWeight.bold,
-                          ),
-                        ),
-                        SizedBox(height: 25),
-                        TextButton(
-                          style: TextButton.styleFrom(
-                            backgroundColor: AppColors.accentCyan,
-                          ),
-                          onPressed: () {},
-                          child: Text(
-                            'Shop Now',
-                            style: TextTheme.of(context).bodyLarge?.copyWith(
+                          Text(
+                            products[index].specs.cpu,
+                            style: TextTheme.of(context).bodyMedium?.copyWith(
+                              color: AppColors.textSecondary,
                               fontWeight: FontWeight.bold,
-                              color: AppColors.primaryBackground,
                             ),
                           ),
-                        ),
-                      ],
+                          SizedBox(height: 2),
+                          Text(
+                            products[index].specs.ram,
+                            style: TextTheme.of(context).bodyMedium?.copyWith(
+                              color: AppColors.textSecondary,
+                              fontWeight: FontWeight.bold,
+                            ),
+                          ),
+                          SizedBox(height: 25),
+                          // TextButton(
+                          //   style: TextButton.styleFrom(
+                          //     backgroundColor: AppColors.accentCyan,
+                          //   ),
+                          //   onPressed: () {},
+                          //   child: Text(
+                          //     'Shop Now',
+                          //     style: TextTheme.of(context).bodyLarge?.copyWith(
+                          //       fontWeight: FontWeight.bold,
+                          //       color: AppColors.primaryBackground,
+                          //     ),
+                          //   ),
+                          // ),
+                        ],
+                      ),
                     ),
-                  ),
-                ],
+                  ],
+                ),
               );
             },
           );
