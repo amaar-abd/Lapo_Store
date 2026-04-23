@@ -5,8 +5,7 @@ import 'package:lapo_app/core/errors/failures.dart';
 abstract class ProductRepo {
   Future<Either<Failure, List<ProductEntity>>> getSalesProducts();
   Future<Either<Failure, List<ProductEntity>>> getProductsByCategory(
-   {required String category}
+   { String? category}
   );
-  Future<Either<Failure, List<ProductEntity>>> getAllProducts();
   Future<Either<Failure, List<ProductEntity>>> searchProducts({required String query});
 }

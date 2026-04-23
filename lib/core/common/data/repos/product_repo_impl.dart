@@ -20,22 +20,12 @@ class ProductRepoImpl implements ProductRepo {
 
   @override
   Future<Either<Failure, List<ProductEntity>>> getProductsByCategory({
-    required String category,
+     String? category,
   }) async {
     try {
       final products = await productRemoteDataSource.getProductsByCategory(
         category: category,
       );
-      return right(products.map((product) => product.toEntity()).toList());
-    } catch (e) {
-      return left(ServerFailure(message: e.toString()));
-    }
-  }
-
-  @override
-  Future<Either<Failure, List<ProductEntity>>> getAllProducts() async {
-    try {
-      final products = await productRemoteDataSource.getAllProducts();
       return right(products.map((product) => product.toEntity()).toList());
     } catch (e) {
       return left(ServerFailure(message: e.toString()));

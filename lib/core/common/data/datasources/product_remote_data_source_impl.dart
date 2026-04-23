@@ -27,31 +27,14 @@ class ProductRemoteDataSourceImpl implements ProductRemoteDataSource {
   }
 
   @override
-  Future<List<ProductModel>> getProductsByCategory({
-    required String category,
-  }) async {
+  Future<List<ProductModel>> getProductsByCategory({String? category}) async {
     try {
-      final response = await supabaseClient
-          .from(ApiConstants.productsTable)
-          .select()
-          .eq('category', category);
-      final data = List<Map<String, dynamic>>.from(response);
+      var query = supabaseClient.from(ApiConstants.productsTable).select();
 
-      return data.map((product) => ProductModel.fromJson(product)).toList();
-    } on SupabaseError catch (e) {
-      throw CustomException(message: e.toString());
-    } catch (e) {
-      throw CustomException(message: e.toString());
-    }
-  }
-
-  @override
-  Future<List<ProductModel>> getAllProducts() async {
-    try {
-      final response = await supabaseClient
-          .from(ApiConstants.productsTable)
-          .select()
-          .order('name');
+      if (category != null) {
+        query = query.eq('category', category);
+      }
+      final response = await query.order('name');
       final data = List<Map<String, dynamic>>.from(response);
 
       return data.map((product) => ProductModel.fromJson(product)).toList();
