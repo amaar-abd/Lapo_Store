@@ -34,6 +34,10 @@ class Assets {
   /// assets/images/logo_app.png
   static const String assetsImagesLogoApp = "assets/images/logo_app.png";
 
+  /// Assets for assetsImagesNotFoundLaptop
+  /// assets/images/not_found_laptop.png
+  static const String assetsImagesNotFoundLaptop = "assets/images/not_found_laptop.png";
+
   /// Assets for assetsImagesOnboardingOnboardingImage1
   /// assets/images/onboarding/onboarding_image_1.png
   static const String assetsImagesOnboardingOnboardingImage1 = "assets/images/onboarding/onboarding_image_1.png";
@@ -45,6 +49,10 @@ class Assets {
   /// Assets for assetsImagesRamIcon
   /// assets/images/ram_Icon.svg
   static const String assetsImagesRamIcon = "assets/images/ram_Icon.svg";
+
+  /// Assets for assetsImagesSearshLap
+  /// assets/images/searsh_lap.png
+  static const String assetsImagesSearshLap = "assets/images/searsh_lap.png";
 
   /// Assets for assetsImagesSplash3608189284164304
   /// assets/images/splash/36.08189284164304.png

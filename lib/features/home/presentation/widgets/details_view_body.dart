@@ -1,5 +1,6 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:intl/intl.dart';
 import 'package:lapo_app/core/common/domain/entities/product_entity.dart';
 import 'package:lapo_app/core/theme/app_colors.dart';
@@ -89,8 +90,8 @@ class DetailsViewBody extends StatelessWidget {
                       ),
                       child: Row(
                         children: [
-                          Icon(
-                            Icons.add_shopping_cart_outlined,
+                          FaIcon(
+                            FontAwesomeIcons.cartPlus,
                             color: Colors.black,
                           ),
                           SizedBox(width: 2),
