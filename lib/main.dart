@@ -7,6 +7,7 @@ import 'package:lapo_app/core/routes/route_generator.dart';
 import 'package:lapo_app/core/services/cache_helper.dart';
 import 'package:lapo_app/core/theme/app_theme.dart';
 import 'package:lapo_app/features/auth/presentation/manager/auth_cubit/auth_cubit.dart';
+import 'package:lapo_app/features/cart/presentation/manager/cart_cubit/cart_cubit.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
 
 void main() async {
@@ -25,8 +26,13 @@ const LapoApp({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return BlocProvider(
-      create: (context) => sl.get<AuthCubit>()..checkAuth(),
+    return MultiBlocProvider(
+      providers:[
+        BlocProvider(create: (context) => sl.get<AuthCubit>()..checkAuth()),
+        BlocProvider(create: (context) => CartCubit()),
+      
+      ] ,
+        
       child: MaterialApp(
         title: 'lapo app',
         onGenerateRoute: RouteGenerator.onGenerateRoute,
