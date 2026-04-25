@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:lapo_app/core/theme/app_colors.dart';
 import 'package:lapo_app/features/cart/presentation/manager/cart_cubit/cart_cubit.dart';
+import 'package:lapo_app/features/cart/presentation/widgets/cart_checkout_container.dart';
 import 'package:lapo_app/features/cart/presentation/widgets/cart_item.dart';
 
 class CartListBlocBuilder extends StatelessWidget {
@@ -21,7 +22,7 @@ class CartListBlocBuilder extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Padding(
-                            padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 10),
+                            padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 6),
               child: Text(
                 'Midnight Tech Luxury',
                 style: TextTheme.of(context).displaySmall?.copyWith(
@@ -31,7 +32,7 @@ class CartListBlocBuilder extends StatelessWidget {
               ),
             ),
             Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 10),
+              padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 6),
               child: Text(
                 'You have ${products.length} items in your cart ready for shipping',
                 style: Theme.of(context).textTheme.bodyMedium?.copyWith(
@@ -55,6 +56,7 @@ class CartListBlocBuilder extends StatelessWidget {
                 },
               ),
             ),
+            CartCheckoutContainer()
           ],
         );
       },
