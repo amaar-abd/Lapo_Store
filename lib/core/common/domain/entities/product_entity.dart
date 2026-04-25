@@ -11,8 +11,9 @@ class ProductEntity extends Equatable {
   final bool isOnSale;
   final String imageUrl;
   final ProductSpecsEntity specs;
+  final int quantity;
 
-  const ProductEntity({
+  const ProductEntity( {
     required this.id,
     required this.name,
     required this.price,
@@ -21,6 +22,7 @@ class ProductEntity extends Equatable {
     required this.isOnSale,
     required this.imageUrl,
     required this.specs,
+    this.quantity=1,
   });
 
   @override
@@ -33,5 +35,6 @@ class ProductEntity extends Equatable {
     isOnSale,
     imageUrl,
     specs,
+    quantity,
   ];
 }

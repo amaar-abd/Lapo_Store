@@ -11,6 +11,7 @@ class ProductModel extends ProductEntity {
     required super.isOnSale,
     required super.imageUrl,
     required super.specs,
+    super.quantity = 1,
   });
   ProductSpecsModel get _specsModel => specs as ProductSpecsModel;
 
@@ -26,6 +27,7 @@ class ProductModel extends ProductEntity {
       specs: ProductSpecsModel.fromJSon(
         Map<String, dynamic>.from(json['specs']),
       ),
+      quantity: json['quantity'] ?? 1,
     );
   }
 
@@ -39,6 +41,7 @@ class ProductModel extends ProductEntity {
       'is_on_sale': isOnSale,
       'image_url': imageUrl,
       'specs': _specsModel.specstoJson(),
+      'quantity': quantity,
     };
   }
 
@@ -54,4 +57,18 @@ class ProductModel extends ProductEntity {
       specs: _specsModel.specsToEntity(),
     );
   }
+
+  ProductModel copyWith({int? quantity}) {
+  return ProductModel(
+    id: id,
+    name: name,
+    price: price,
+    category: category,
+    brand: brand,
+    isOnSale: isOnSale,
+    imageUrl: imageUrl,
+    specs: specs as ProductSpecsModel,
+    quantity: quantity ?? this.quantity,
+  );
+}
 }
