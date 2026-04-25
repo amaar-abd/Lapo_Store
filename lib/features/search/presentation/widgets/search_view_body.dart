@@ -27,7 +27,7 @@ class _SearchViewBodyState extends State<SearchViewBody> {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            SizedBox(height: 15),
+            SizedBox(height: 12),
             CustomSearchTextField(controller: searchController),
             SizedBox(height: 10), 
             Text(

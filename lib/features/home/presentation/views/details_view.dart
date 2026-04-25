@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:lapo_app/core/common/data/models/product_model.dart';
 import 'package:lapo_app/core/common/domain/entities/product_entity.dart';
 import 'package:lapo_app/features/home/presentation/widgets/details_view_body.dart';
 
@@ -20,7 +21,7 @@ class DetailsView extends StatelessWidget {
           ),
         ),
       ),
-      body: SafeArea(child: DetailsViewBody(product: product)),
+      body: SafeArea(child: DetailsViewBody(product: ProductModel.fromEntity(product))),
     );
   }
 }

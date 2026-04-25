@@ -57,7 +57,20 @@ class ProductModel extends ProductEntity {
       specs: _specsModel.specsToEntity(),
     );
   }
+factory ProductModel.fromEntity(ProductEntity entity) {
+  return ProductModel(
+    id: entity.id,
+    name: entity.name,
+    price: entity.price,
+    category: entity.category,
+    brand: entity.brand,
+    isOnSale: entity.isOnSale,
+    imageUrl: entity.imageUrl,
+    specs: ProductSpecsModel.fromEntity(entity.specs), 
+    quantity: entity.quantity,
 
+  );
+}
   ProductModel copyWith({int? quantity}) {
   return ProductModel(
     id: id,

@@ -1,16 +1,19 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:intl/intl.dart';
-import 'package:lapo_app/core/common/domain/entities/product_entity.dart';
+import 'package:lapo_app/core/common/data/models/product_model.dart';
+import 'package:lapo_app/core/common/widgets/custom_snackbar.dart';
 import 'package:lapo_app/core/theme/app_colors.dart';
 import 'package:lapo_app/core/utils/app_images.dart';
+import 'package:lapo_app/features/cart/presentation/manager/cart_cubit/cart_cubit.dart';
 import 'package:lapo_app/features/home/presentation/widgets/custom_list_tile.dart';
 import 'package:lapo_app/features/home/presentation/widgets/details_appbar.dart';
 
 class DetailsViewBody extends StatelessWidget {
   const DetailsViewBody({super.key, required this.product});
-  final ProductEntity product;
+  final ProductModel product;
   @override
   Widget build(BuildContext context) {
     final height = MediaQuery.of(context).size.height;
@@ -83,27 +86,46 @@ class DetailsViewBody extends StatelessWidget {
                         fontWeight: FontWeight.bold,
                       ),
                     ),
-                    TextButton(
-                      onPressed: () {},
-                      style: TextButton.styleFrom(
-                        backgroundColor: AppColors.accentCyan,
-                      ),
-                      child: Row(
-                        children: [
-                          FaIcon(
-                            FontAwesomeIcons.cartPlus,
-                            color: Colors.black,
+                    BlocConsumer<CartCubit, CartState>(
+                      listenWhen: (previous, current) => current is CartUpdated,
+                      listener: (context, state) {
+                        if (state is CartUpdated) {
+                          customSnackBar(
+                            context,
+                            'Added to cart successfully!',
+                            AppColors.success,
+                          );
+                        }
+                      },
+                      builder: (context, state) {
+                        return TextButton(
+                          onPressed: () {
+                            context.read<CartCubit>().addToCart(
+                          product
+                            );
+                          },
+                          style: TextButton.styleFrom(
+                            backgroundColor: AppColors.accentCyan,
                           ),
-                          SizedBox(width: 2),
-                          Text(
-                            'ADD TO CART',
-                            style: TextTheme.of(context).bodySmall?.copyWith(
-                              fontWeight: FontWeight.bold,
-                              color: AppColors.primaryBackground,
-                            ),
+                          child: Row( mainAxisSize: MainAxisSize.min,
+                            children: [
+                              FaIcon(
+                                FontAwesomeIcons.cartPlus,
+                                color: Colors.black,
+                              ),
+                              SizedBox(width: 2),
+                              Text(
+                                'ADD TO CART',
+                                style: TextTheme.of(context).bodySmall
+                                    ?.copyWith(
+                                      fontWeight: FontWeight.bold,
+                                      color: AppColors.primaryBackground,
+                                    ),
+                              ),
+                            ],
                           ),
-                        ],
-                      ),
+                        );
+                      },
                     ),
                   ],
                 ),
