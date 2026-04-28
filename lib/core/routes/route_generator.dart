@@ -4,6 +4,7 @@ import 'package:lapo_app/core/routes/app_routes.dart';
 import 'package:lapo_app/features/auth/presentation/views/signin_view.dart';
 import 'package:lapo_app/features/auth/presentation/views/signup_view.dart';
 import 'package:lapo_app/features/checkout/presentation/views/checkout_view.dart';
+import 'package:lapo_app/features/checkout/presentation/views/order_success_view.dart';
 import 'package:lapo_app/features/home/presentation/views/details_view.dart';
 import 'package:lapo_app/features/main_layout/presentation/widgets/main_view_body.dart';
 import 'package:lapo_app/features/onboarding/presentation/views/onboarding_view.dart';
@@ -29,6 +30,10 @@ class RouteGenerator {
         );
       case AppRoutes.checkoutView:
         return MaterialPageRoute(builder: (context) => const CheckoutView());
+      case AppRoutes.orderSuccessView:
+        return MaterialPageRoute(
+          builder: (context) => const OrderSuccessView(),
+        );
       default:
         return MaterialPageRoute(
           builder: (context) => Scaffold(
