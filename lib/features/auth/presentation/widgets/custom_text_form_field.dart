@@ -9,7 +9,7 @@ class CustomTextFormField extends StatelessWidget {
     required this.controller,
     this.obscureText,
     this.suffixIcon,
-    this.prefixIcon,
+    this.prefixIcon, this.keyboardType,
   });
   final String? title;
   final String hintText;
@@ -17,6 +17,7 @@ class CustomTextFormField extends StatelessWidget {
   final Widget? prefixIcon;
   final bool? obscureText;
   final TextEditingController controller;
+  final TextInputType? keyboardType;
 
   @override
   Widget build(BuildContext context) {
@@ -36,11 +37,12 @@ class CustomTextFormField extends StatelessWidget {
         DecoratedBox(
           decoration: BoxDecoration(borderRadius: BorderRadius.circular(16)),
           child: TextFormField(
+            keyboardType: keyboardType,
             textAlignVertical: TextAlignVertical.center,
             obscureText: obscureText ?? true,
             controller: controller,
             validator: (value) =>
-                value == null || value.isEmpty ? 'cant be empty' : null,
+                value == null || value.isEmpty ?  'Please enter your ${title!.toLowerCase()}' : null,
             decoration: InputDecoration(
               filled: true,
               fillColor: AppColors.successGreen.withAlpha(1),

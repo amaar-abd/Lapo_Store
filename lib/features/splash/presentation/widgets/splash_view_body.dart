@@ -80,8 +80,10 @@ class _SplashViewBodyState extends State<SplashViewBody> {
       final bool isOnboardingVisited =
           await CacheHelper.getData(key: 'isOnboardingVisited') ?? false;
       if (isOnboardingVisited) {
+        if (!mounted) return;
         context.read<AuthCubit>().checkAuth();
       } else {
+        if (!mounted) return;
         Navigator.of(context).pushReplacementNamed(AppRoutes.onboardingView);
       }
     });
