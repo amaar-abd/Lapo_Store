@@ -22,16 +22,17 @@ class OrdersViewBody extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   Icon(
-            Icons.shopping_bag_outlined,
-            size: 80,
-            color: Colors.grey[400],
-          ),
-          const SizedBox(height: 16),
+                    Icons.shopping_bag_outlined,
+                    size: 100,
+                    color: AppColors.textSecondary,
+                  ),
+                  const SizedBox(height: 16),
                   Text(
                     'No orders found',
-                    style: Theme.of(
-                      context,
-                    ).textTheme.bodyMedium?.copyWith(color: Colors.grey),
+                    style: TextTheme.of(context).displaySmall?.copyWith(
+                      color: AppColors.textPrimary,
+                      fontWeight: FontWeight.bold,
+                    ),
                   ),
                 ],
               ),

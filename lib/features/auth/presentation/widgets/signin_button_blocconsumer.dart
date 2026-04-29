@@ -4,6 +4,7 @@ import 'package:lapo_app/core/common/widgets/custom_snackbar.dart';
 import 'package:lapo_app/core/common/widgets/mian_button.dart';
 import 'package:lapo_app/core/routes/app_routes.dart';
 import 'package:lapo_app/core/theme/app_colors.dart';
+import 'package:lapo_app/features/auth/presentation/manager/auth_cubit/auth_cubit.dart';
 import 'package:lapo_app/features/auth/presentation/manager/signin_cubit/signin_cubit.dart';
 
 class SigninButtonBlocconsumer extends StatelessWidget {
@@ -24,6 +25,7 @@ class SigninButtonBlocconsumer extends StatelessWidget {
     return BlocConsumer<SigninCubit, SigninState>(
       listener: (context, state) {
         if (state is SigninSuccess) {
+          context.read<AuthCubit>().checkAuth();
           customSnackBar(context, 'Login successful', AppColors.success);
           Navigator.of(context).pushReplacementNamed(AppRoutes.mainView);
         }

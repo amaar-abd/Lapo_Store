@@ -17,7 +17,7 @@ class OrderView extends StatelessWidget {
       child: Scaffold(
         appBar: AppBar(
           title: Text(
-            'Orders',
+            'ORDERS',
             style: TextTheme.of(context).bodyLarge?.copyWith(
               color: AppColors.textPrimary,
               fontWeight: FontWeight.bold,
