@@ -12,6 +12,10 @@ import 'package:lapo_app/features/checkout/data/datasource/checkout_remote_data_
 import 'package:lapo_app/features/checkout/data/datasource/checkout_remote_data_source_impl.dart';
 import 'package:lapo_app/features/checkout/data/repos/checkout_repo_impl.dart';
 import 'package:lapo_app/features/checkout/domain/repos/checkout_repo.dart';
+import 'package:lapo_app/features/orders/data/datasources/orders_data_source.dart';
+import 'package:lapo_app/features/orders/data/datasources/orders_data_source_impl.dart';
+import 'package:lapo_app/features/orders/data/repos/orders_repo_impl.dart';
+import 'package:lapo_app/features/orders/domain/repos/orders_repo.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
 
 final GetIt sl = GetIt.instance;
@@ -41,6 +45,16 @@ void getItInit() {
   sl.registerLazySingleton<CheckoutRepo>(
     () => CheckoutRepoImpl(
       checkoutRemoteDataSource: sl.get<CheckoutRemoteDataSource>(),
+    ),
+  );
+
+  sl.registerLazySingleton<OrdersDataSource>(
+    () =>
+        OrdersDataSourceImpl(supabaseClient: sl.get<SupabaseClient>()),
+  );
+  sl.registerLazySingleton<OrdersRepo>(
+    () => OrdersRepoImpl(
+      ordersDataSource: sl.get<OrdersDataSource>(),
     ),
   );
 }

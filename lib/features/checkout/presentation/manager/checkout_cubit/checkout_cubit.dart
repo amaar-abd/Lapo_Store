@@ -11,7 +11,7 @@ class CheckoutCubit extends Cubit<CheckoutState> {
   Future<void> uploadOrder(OrderModel order, List<OrderItemModel> items) async {
     emit(CheckoutLoading());
     final result = await checkoutRepo.uploadOrder(order, items);
-
+    
     result.fold(
       (failure) => emit(CheckoutFailure(message: failure.message)),
       (success) => emit(CheckoutSuccess()),
