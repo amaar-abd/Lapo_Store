@@ -6,34 +6,48 @@ The app features a cutting-edge UI/UX, robust backend integration with **Supabas
 ## 📸 App Screenshots
 
 ### 🏁 Startup & Introduction
-| Splash Screen | Onboarding 1 | Onboarding 2 |
-| :-: | :-: | :-: |
-| <img src="screenshots/Splash.jpg" width="250"> | <img src="screenshots/Onboarding1.jpg" width="250"> | <img src="screenshots/Onboarding2.jpg" width="250"> |
+<p align="center">
+  <img src="screenshots/Splash.jpg" width="31%">
+  <img src="screenshots/Onboarding1.jpg" width="31%">
+  <img src="screenshots/Onboarding2.jpg" width="31%">
+</p>
 
 ### 🔐 Authentication & Access
-| Login Screen | Register Screen | Logout Confirmation |
-| :-: | :-: | :-: |
-| <img src="screenshots/Login.jpg" width="250"> | <img src="screenshots/SignUp.jpg" width="250"> | <img src="screenshots/LogoutDialog.jpg" width="250"> |
+<p align="center">
+  <img src="screenshots/Login.jpg" width="31%">
+  <img src="screenshots/SignUp.jpg" width="31%">
+  <img src="screenshots/LogoutDialog.jpg" width="31%">
+</p>
 
 ### 🏠 Main Shopping Experience
-| Home Feed (V1) | Home Categories (V2) | Featured Home (V3) | Product Details |
-| :-: | :-: | :-: | :-: |
-| <img src="screenshots/Home1.jpg" width="200"> | <img src="screenshots/Home2.jpg" width="200"> | <img src="screenshots/Home3.jpg" width="200"> | <img src="screenshots/ProductDetails.jpg" width="200"> |
+<p align="center">
+  <img src="screenshots/Home1.jpg" width="24%">
+  <img src="screenshots/Home2.jpg" width="24%">
+  <img src="screenshots/Home3.jpg" width="24%">
+  <img src="screenshots/ProductDetails.jpg" width="24%">
+</p>
 
 ### 🔍 Search Intelligence
-| Initial Search | Search Results | No Results Found |
-| :-: | :-: | :-: |
-| <img src="screenshots/SearchEmpty.jpg" width="250"> | <img src="screenshots/SearchResults.jpg" width="250"> | <img src="screenshots/SearchNoResults.jpg" width="250"> |
+<p align="center">
+  <img src="screenshots/SearchEmpty.jpg" width="31%">
+  <img src="screenshots/SearchResults.jpg" width="31%">
+  <img src="screenshots/SearchNoResults.jpg" width="31%">
+</p>
 
 ### 🛒 Cart & Checkout Flow
-| Shopping Cart | Shipping Address | Shipping Method | Order Summary |
-| :-: | :-: | :-: | :-: |
-| <img src="screenshots/Cart.jpg" width="200"> | <img src="screenshots/CheckoutAddress.jpg" width="200"> | <img src="screenshots/CheckoutShipping.jpg" width="200"> | <img src="screenshots/OrderSummary.jpg" width="200"> |
+<p align="center">
+  <img src="screenshots/Cart.jpg" width="24%">
+  <img src="screenshots/CheckoutAddress.jpg" width="24%">
+  <img src="screenshots/CheckoutShipping.jpg" width="24%">
+  <img src="screenshots/OrderSummary.jpg" width="24%">
+</p>
 
 ### 👤 User Space & Status
-| Payment Success | Order History | User Profile |
-| :-: | :-: | :-: |
-| <img src="screenshots/PaymentSuccess.jpg" width="250"> | <img src="screenshots/Orders.jpg" width="250"> | <img src="screenshots/Profile.jpg" width="250"> |
+<p align="center">
+  <img src="screenshots/PaymentSuccess.jpg" width="31%">
+  <img src="screenshots/Orders.jpg" width="31%">
+  <img src="screenshots/Profile.jpg" width="31%">
+</p>
 
 ## 🛠 Technical Implementation
 This project showcases high-level Flutter development skills with a focus on scalability and modern design:
